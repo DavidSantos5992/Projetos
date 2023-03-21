@@ -1,37 +1,36 @@
-<script setup>
-
-</script>
-
 <template>
-  <div class="text-3xl font-bold underline bg-red-200">hello vue with Tailwind</div>
+  <baseContainer class="sm: p-8">
+    <defaultBox v-for="item in list" :key="item.id" :highligth="item.promo">{{ 
+      item.title 
+    }} </defaultBox>
+  </baseContainer>
 </template>
 
-<style scoped>
+<script>
+import defaultBox from "./assets/shared/defaultBox.vue";
 
-header {
-  line-height: 1.5;
-}
+import baseContainer from "./assets/shared/baseContainer.vue";
 
-.logo {
-  display: block;
-  margin: 0 auto 2rem;
-}
+export default {
+  components: { baseContainer, defaultBox },
 
-@media (min-width: 1024px) {
-  header {
-    display: flex;
-    place-items: center;
-    padding-right: calc(var(--section-gap) / 2);
-  }
+  setup() {
+    const list = [
+      { id: 1, title: "Tailwind CSS" },
+      { id: 2, title: "Tailwind CSS" },
+      { id: 3, title: "Simulando item em promo CSS", promo: true },
+      { id: 4, title: "Tailwind CSS" },
+      { id: 5, title: "Tailwind CSS" },
+      { id: 6, title: "Tailwind CSS" },
+      { id: 7, title: "Tailwind CSS" },
+      { id: 8, title: "Tailwind CSS" },
+      { id: 9, title: "Tailwind CSS" },
+    ];
 
-  .logo {
-    margin: 0 2rem 0 0;
-  }
+    console.log(list);
+    return { list };
+  },
+};
+</script>
 
-  header .wrapper {
-    display: flex;
-    place-items: flex-start;
-    flex-wrap: wrap;
-  }
-}
-</style>
+<style scoped></style>
