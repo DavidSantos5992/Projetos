@@ -20,7 +20,10 @@
 <style scoped>
 
 .default-box {
-      @apply flex items-center justify-center bg-red-200 h-52 w-full sm:rounded sm:shadow border-red-500;
+      @apply 
+      flex items-center
+       justify-center
+        bg-red-200 h-52 w-full sm:rounded sm:shadow border-red-500;
 }
 
 .default-box.highligth {

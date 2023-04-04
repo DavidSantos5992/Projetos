@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="PT-BR">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <link rel="stylesheet" href="style.css">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Nui-skins</title>
+</head>
+
+<body>
+
+    <div id="app">
+
+        <div id="container">
+
+            <div v-if="screen == 0" class="buySkinsContainer">
+                <div class="selectWeaponTypeContainer">
+
+                    <div @click="insertModal(1)" class="selectWeaponType">
+                        <p>+</p>
+                    </div>
+
+                </div>
+
+                <div class="buySkins">
+
+                    <header>
+                        <h1>Ordenação alfabetica e Prioridade para favoritos</h1>
+                    </header>
+
+                    <div class="selectSkinsContainer">
+
+                        <div class="selectSkinsContainerBorder"></div>
+
+                        <div v-if="selectedFilter != '' ? v.type == selectedFilter : true" v-for="(v,index) in forSale" class="selectSkins">
+
+                            <div class="selectSkinsBorder"></div>
+
+                            <div class="selectSkinsInfos">
+                                <h2>
+                                    <img @click="v.favorite = !v.favorite, setFavorite(v, index, 'add', forSale)" v-if="!v.favorite" src="assets/star.svg">
+                                    <img @click="v.favorite = !v.favorite, setFavorite(v, index, 'remove', forSale)" v-else-if="v.favorite"  src="assets/starCheck.svg">
+                                    {{ v.name }}
+                                </h2>
+                                <h4 :class="{commonRarity: v.rarity == 'common',
+                                             rareRarity: v.rarity == 'rare',
+                                             legendaryRarity: v.rarity == 'legendary',}">
+
+
+                                    {{ v.rarity == 'common' ? 'comum' : (
+                                    v.rarity == 'rare' ? 'raro' : (
+                                    v.rarity == 'legendary' ? 'lendário' : ''
+                                    )
+                                    ) }}
+                                </h4>
+                            </div>
+
+                            <div class="selectSkinPhoto">
+                                <img :src="'assets/'+v.photo+'.png'" alt="">
+                            </div>
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+        </div>
+
+        <div v-if="modalActive == 1" id="modalContainer">
+
+            <div class="modal">
+
+                <label for="item">
+                    <h1>insira o nome do item</h1>
+                    <input spellcheck="false" id="item" type="text">
+                </label>
+
+                <label for="rarity">
+                    <h1>insira a raridade</h1>
+                    <input spellcheck="false" id="rarity" type="text">
+                </label>
+
+                <div class="buttonContainer">
+
+                    <div @click="insertItem()" class="button">
+                      <p>confirmar</p>  
+                    </div>
+                    
+                    <div @click="insertModal(0)" class="button">
+                      <p>cancelar</p>  
+                    </div>
+
+                </div>
+
+            </div>
+        </div>
+
+    
+
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/vue@2"></script>
+    <script src="index.js"></script>
+
+</body>
+
+</html>
