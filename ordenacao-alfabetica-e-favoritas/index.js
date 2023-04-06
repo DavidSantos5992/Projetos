@@ -9,32 +9,26 @@ var app = new Vue({
 
         modalActive: 0,
 
-        menu: true,
+        modal: true,
 
         forSale: [
             {
                 name: 'Aaaaaaa',
                 rarity: 'common',/* common rare legendary */
-                price: 100,
                 photo: 'icon',
-                type: 'pistol',
                 favorite: false,
             },
             {
                 name: 'Bbbbbbb',
                 rarity: 'rare',
-                price: 200,
                 photo: 'icon',
-                type: 'rifle',
                 favorite: false,
             },
 
             {
                 name: 'Ccccccc',
                 rarity: 'legendary',
-                price: 300,
                 photo: 'icon',
-                type: 'shotgun',
                 favorite: false,
 
             },
@@ -42,9 +36,7 @@ var app = new Vue({
             {
                 name: 'Ddddddd',
                 rarity: 'legendary',
-                price: 400,
                 photo: 'icon',
-                type: 'shotgun',
                 favorite: false,
 
             },
@@ -52,30 +44,21 @@ var app = new Vue({
             {
                 name: 'Ddddddd',
                 rarity: 'legendary',
-                price: 400,
                 photo: 'icon',
-                type: 'shotgun',
                 favorite: false,
 
             },
-        ],
 
-        categories: [
-            {
-                index: 'pistolIcon',
-                type: 'pistol'
-            },
-            {
-                index: 'rifle',
-                type: 'rifle'
-            },
-            {
-                index: 'rifle',
-                type: 'shotgun'
-            },
         ],
 
         selectedFilter: '',
+
+        temp : {
+            name: '',
+            rarity: '',
+            photo: 'icon',
+            favorite: false,
+        }
 
     },
 
@@ -115,12 +98,13 @@ var app = new Vue({
             }
         },
 
-        insertCustomModal(text, type) {
+        /* insertCustomModal(text, type) {
             this.customModal.text = text
             this.customModal.type = type
             this.insertModal(1)
         },
-
+ */
+      
         /* setando e removendo filtro */
         chooseFilter(filterType) {
 
@@ -149,12 +133,31 @@ var app = new Vue({
         },
 
         insertModal(nextModal) {
-            this.modalActive = nextModal
+            this.modal = nextModal
         },
 
         closeUI() {
-            this.menu = false
+            this.modal = false
         },
+
+        zera(){
+            this.temp.name = ''
+            this.temp.rarity = ''
+        },
+
+        insertItem() {
+
+            let element = JSON.parse(JSON.stringify(this.temp))
+
+            console.log(element.name)
+            console.log(element.rarity)
+
+            this.forSale.push(element)
+            this.insertModal(false)
+            this.zera()
+        },
+
+   
 
     },
 
@@ -163,10 +166,11 @@ var app = new Vue({
     mounted() {
 
         this.sortPosition(this.forSale)
+
         document.addEventListener('keydown', (event) => {
             const keyName = event.key;
 
-            if (app.menu && keyName == 'Escape') {
+            if (app.modal && keyName == 'Escape') {
                 app.closeUI()
             }
 

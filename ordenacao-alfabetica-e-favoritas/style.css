@@ -195,11 +195,18 @@
 
 #container .selectSkinsInfos h2 img {
     width: 1vw;
+    height: 1vw;
     position: absolute;
     top: .5vw;
     left: .5vw;
-
 }
+
+#container .selectSkinsInfos h2 img:hover {
+   transition: .2;
+   cursor: pointer;
+   transform: scale(1.2);
+}
+
 /* 
 #container .selectSkinsInfos h3 {
 
