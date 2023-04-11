@@ -154,6 +154,8 @@ var app = new Vue({
                 this.forSale.push(element)
                 this.insertModal(false)
                 this.sortPosition(this.forSale)
+               } else {
+                 this.insertModal(2,true)
                }
 
             } else {
