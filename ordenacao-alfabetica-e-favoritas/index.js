@@ -9,11 +9,11 @@ var app = new Vue({
 
         modalActive: 0,
 
-        modal: true,
+        modal: false,
 
         forSale: [
             {
-                name: 'Aaaaaaa',
+                name: 'abacate',
                 rarity: 'common',/* common rare legendary */
                 photo: 'icon',
                 favorite: false,
@@ -97,13 +97,6 @@ var app = new Vue({
                 this.sortPosition(array)
             }
         },
-
-        /* insertCustomModal(text, type) {
-            this.customModal.text = text
-            this.customModal.type = type
-            this.insertModal(1)
-        },
- */
       
         /* setando e removendo filtro */
         chooseFilter(filterType) {
@@ -132,15 +125,16 @@ var app = new Vue({
             }
         },
 
-        insertModal(nextModal) {
-            this.modal = nextModal
+        insertModal(nextModal, statsModal) {
+            this.modalActive = nextModal
+            this.modal = statsModal
         },
 
         closeUI() {
             this.modal = false
         },
 
-        zera(){
+        zeroingVariable(){
             this.temp.name = ''
             this.temp.rarity = ''
         },
@@ -148,16 +142,28 @@ var app = new Vue({
         insertItem() {
 
             let element = JSON.parse(JSON.stringify(this.temp))
+            element.name = element.name.toLowerCase()
+            element.rarity = element.rarity.toLowerCase()
 
-            console.log(element.name)
-            console.log(element.rarity)
+            
+            if (element.name != '' && element.rarity != '') {
+                
+               if ( element.rarity == 'common'  || element.rarity == 'rare' || element.rarity == 'legendary') {
+                console.log(element.name)
+                console.log(element.rarity)
+                this.forSale.push(element)
+                this.insertModal(false)
+                this.sortPosition(this.forSale)
+               }
 
-            this.forSale.push(element)
-            this.insertModal(false)
-            this.zera()
+            } else {
+                this.insertModal(2,true)
+            }
+
+            
+
+            this.zeroingVariable()
         },
-
-   
 
     },
 

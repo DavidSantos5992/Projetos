@@ -2,7 +2,6 @@
     padding: 0;
     margin: 0;
     transition: 0.1s;
-    user-select: none;
 }
 
 :root {
@@ -279,6 +278,62 @@
     backdrop-filter: blur(5px);
 }
 
+.modalInfosContainer { 
+    width: 33vw;
+    height: 20vw;
+    display: flex;
+    justify-content: space-between;
+}
+
+.modalInfos {
+    width: 7.5vw;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    border-radius: 10px;
+    background: linear-gradient(0deg, rgba(30, 3, 25, 0.744) 0%, rgba(109, 3, 176, 0.926) 100%), rgba(28, 27, 27, 0.325);
+}
+
+.modalInfos h1 {
+    font-family: var(--default-bold-font);
+    font-size: 1vw;
+    font-weight: 100;
+    letter-spacing: .07vw;
+    text-transform: capitalize;
+    color: var(--default-font-color);
+    margin-top: 1vw;
+}
+
+.modalInfos h2 {
+    font-family: var(--default-font);
+    font-size: 1vw;
+    font-weight: 500;
+    letter-spacing: .07vw;
+    text-transform: capitalize;
+    margin: 1vw 0;
+}
+
+.modalInfos h2:nth-child(2) {
+    color: rgba(234, 255, 200, 0.9);
+}
+
+.modalInfos h2:hover {
+    transition: .1s;
+    transform: scale(1.1);
+}
+
+
+.modalInfos h2:nth-child(3) {
+    color: #00A3FFE5;
+
+}
+
+.modalInfos h2:nth-child(4) {
+    color: #FF38EBE5;
+
+}
+
 #modalContainer .modal {
     width: 25vw;
     height: 20vw;
@@ -316,9 +371,11 @@
     background: var(--default-menu-background);
     font-size: 1vw;
     font-family: var(--default-font);
+    text-transform: capitalize;
     color: var(--default-font-color);
     text-align: center;
 }
+
 
 #modalContainer .buttonContainer {
     width: 100%;
@@ -333,8 +390,14 @@
     height: 100%;
     display: grid;
     place-items: center;
+    outline: none;
+    border: none;
     border-radius: .5vw;
     background: rgba(160, 6, 221, 0.51);
+}
+
+#modalContainer button:focus {
+    border: solid 2px rgba(160, 6, 221, 0.716);
 }
 
 #modalContainer .button:hover {
@@ -342,15 +405,18 @@
     box-shadow: 0 0 15px rgba(160, 6, 221, 0.51);
 }
 
-#modalContainer .button:nth-child(2) {
+#modalContainer .button:nth-child(3) {
     background: rgba(255, 5, 5, 0.51);
 }
 
-#modalContainer .button:nth-child(2):hover {
+#modalContainer .button:nth-child(3):hover {
     transition: .1s;
     box-shadow: 0 0 15px rgba(255, 5, 5, 0.51)
 }
 
+#modalContainer button:nth-child(3):focus {
+    border: solid 2px rgba(255, 5, 5, 0.51);
+}
 
 
 .button p {
@@ -360,6 +426,29 @@
     text-align: center;
     text-transform: capitalize;
     letter-spacing: .07vw;
+}
+
+.modalErrorContainer {
+    width: 30vw;
+    height: 20vw;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-between;
+    box-sizing: border-box;
+    padding: 2vw 0;
+    background:  linear-gradient(0deg, rgba(30, 3, 25, 0.744) 0%, rgba(109, 3, 176, 0.926) 100%), rgba(28, 27, 27, 0.325);
+    border-radius: 10px;
+}
+
+.modalErrorContainer h1 {
+    font-family: var(--default-font);
+    letter-spacing: 0.07vw;
+    color: var(--default-font-color);
+    font-weight: 100;
+    text-transform: uppercase;
+    font-size: 2vw;
+    text-align: center;
 }
 
 

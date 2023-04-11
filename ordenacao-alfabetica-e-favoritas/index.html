@@ -18,7 +18,7 @@
             <div v-if="screen == 0" class="buySkinsContainer">
                 <div class="selectWeaponTypeContainer">
 
-                    <div @click="insertModal(true)" class="selectWeaponType">
+                    <div @click="insertModal(1,true)" class="selectWeaponType">
                         <p>+</p>
                     </div>
 
@@ -73,31 +73,68 @@
 
         <div v-if="modal" id="modalContainer">
 
-            <div class="modal">
+            <div v-if="modalActive == 1" class="modalInfosContainer">
 
-                <label for="item">
-                    <h1>insira o nome do item</h1>
-                    <input v-model="temp.name" spellcheck="false" id="item" type="text">
-                </label>
+                <div class="modal">
 
-                <label for="rarity">
-                    <h1>insira a raridade</h1>
-                    <input v-model="temp.rarity"  spellcheck="false" id="rarity" type="text">
-                </label>
+                    <label for="item">
+                        <h1>insira o nome do item</h1>
+                        <input v-model="temp.name" spellcheck="false" autocomplete="off" id="item" type="text">
+                    </label>
 
-                <div class="buttonContainer">
+                    <label for="rarity">
+                        <h1>insira a raridade</h1>
+                        <input v-model="temp.rarity" autocomplete="off" spellcheck="false" id="rarity" type="text">
+                    </label>
 
-                    <div @click="insertItem()" class="button">
-                      <p>confirmar</p>  
-                    </div>
-                    
-                    <div @click="insertModal(false)" class="button">
-                      <p>cancelar</p>  
+                    <div class="buttonContainer">
+
+                        <button  @click="insertItem()" class="button">
+                              <p>confirmar</p>  
+                        </button>
+
+                        <div>
+                        </div>
+                        
+                        <button @click="insertModal(0,false)" class="button">
+                        <p>cancelar</p>  
+                        </button>
+
                     </div>
 
                 </div>
 
+                <div class="modalInfos">
+
+                    <h1>raridades</h1>
+
+                    <h2>common</h2>
+                    <h2>rare</h2>
+                    <h2>legendary</h2>
+
+                </div>
+
             </div>
+
+            <div v-if="modalActive == 2" class="modalErrorContainer">
+                <h1>verifique se as informações estão corretas</h1>
+                
+                <div class="buttonContainer">
+
+                    <button  @click="insertModal(1,true)" class="button">
+                          <p>voltar</p>  
+                    </button>
+
+                    <div>
+                    </div>
+                    
+                    <button @click="insertModal(0,false)" class="button">
+                    <p>cancelar</p>  
+                    </button>
+
+                </div>
+            </div>
+
         </div>
 
     
