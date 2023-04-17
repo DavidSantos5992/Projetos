@@ -13,20 +13,20 @@ var app = new Vue({
 
         forSale: [
             {
-                name: 'abacate',
+                name: 'A',
                 rarity: 'common',/* common rare legendary */
                 photo: 'icon',
                 favorite: false,
             },
             {
-                name: 'Bbbbbbb',
+                name: 'B',
                 rarity: 'rare',
                 photo: 'icon',
                 favorite: false,
             },
 
             {
-                name: 'Ccccccc',
+                name: 'C',
                 rarity: 'legendary',
                 photo: 'icon',
                 favorite: false,
@@ -34,7 +34,7 @@ var app = new Vue({
             },
 
             {
-                name: 'Ddddddd',
+                name: 'D',
                 rarity: 'legendary',
                 photo: 'icon',
                 favorite: false,
@@ -42,7 +42,7 @@ var app = new Vue({
             },
          
             {
-                name: 'Ddddddd',
+                name: 'E',
                 rarity: 'legendary',
                 photo: 'icon',
                 favorite: false,
