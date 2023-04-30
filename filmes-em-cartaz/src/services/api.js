@@ -1,0 +1,3 @@
+//base da api  https://api.themoviedb.org/3/
+/* https://api.themoviedb.org/3//movie/now_playing?api_key=7ce101ef8a0104d3ad51a39c67ba3d19&language=pt-BR */
+
