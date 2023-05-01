@@ -36,7 +36,12 @@
     background: #116feb;
     color: #fff;
     border-radius:  0 0 8px 8px ;
+}
 
+.loading {
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }
 
 
