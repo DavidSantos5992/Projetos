@@ -8,6 +8,7 @@ function Home() {
 
     useEffect(() => {
         async function loadFilmes(){
+
             const response = await api.get('movie/now_playing', {
                 params:{
                     api_key: '7ce101ef8a0104d3ad51a39c67ba3d19',
@@ -16,16 +17,26 @@ function Home() {
                 }
             })
 
-            console.log(response.data.results)
+            setFilmes(response.data.results.slice(0,10))
+          //  console.log(response.data.results.slice(0,10));
         }
 
         loadFilmes();
     })
 
     return(
-        <div>
-            <h1>Bem vindo a Home</h1>
+      <div className="container">
+        <div className="lista-filmes">
+          {filmes.map((filme) => {
+            return(
+                <article key={filme.id}> 
+                    <strong>{filme.title}</strong>
+                    <img src={`https://image.tmdb.org/t/p/original/${filme.poster_path }`} alt="filme.title" />
+                </article>
+            )
+          })}
         </div>
+      </div>
     )
 }
 
