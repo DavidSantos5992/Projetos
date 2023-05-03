@@ -1,5 +1,5 @@
 import { useEffect,useState } from "react"
-import { useParams,useNavigate } from "react-router-dom"
+import { useParams,useNavigate, json } from "react-router-dom"
 import './filme.css'
 import api from "../../services/api";
 
@@ -36,6 +36,24 @@ function Filme() {
             console.log('Componente Desmontado')
         }
     }, [navigate, id])
+
+    function salvarFilme() {
+        const minhaLista = localStorage.getItem('@primeflix')
+
+        let filmesSalvos = JSON.parse(minhaLista) || [];
+
+        const hasFilmes = filmesSalvos.some(  (filmeSalvo) => filmeSalvo.id === filme.id)
+
+        if(hasFilmes){
+            alert('filme ja esta na lista')
+            return
+        } 
+
+        filmesSalvos.push(filme)
+        localStorage.setItem('@primeflix', JSON.stringify(filmesSalvos));
+        alert('filme salvo com sucesso')
+    }
+
     if (loading) {
         <div className="filme-info">
             <h1>Carregando Filmes</h1>
@@ -52,7 +70,7 @@ function Filme() {
                 <strong>Avaliação: {filme.vote_average} / 10 </strong>
 
                 <div className="area-buttons">
-                    <button>
+                    <button onClick={salvarFilme}>
                         salvar
                     </button>
 
