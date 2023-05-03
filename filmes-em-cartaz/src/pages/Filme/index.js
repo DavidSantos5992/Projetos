@@ -48,6 +48,17 @@ function Filme() {
                 <span>{filme.overview}</span>
                 <strong>Avaliação: {filme.vote_average} / 10 </strong>
 
+                <div className="area-buttons">
+                    <button>
+                        salvar
+                    </button>
+
+                    <button>
+                        <a href="#">
+                            trailer
+                        </a>
+                    </button>
+                </div>
             </div>
         </div>
     )
