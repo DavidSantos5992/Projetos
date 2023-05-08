@@ -2,6 +2,7 @@ import { useState,useEffect } from "react";
 import './favoritos.css'
 import { toast } from "react-toastify";
 import { Link } from "react-router-dom";
+
 function Favoritos() {
     const [filmes, setFilmes] = useState([])
 

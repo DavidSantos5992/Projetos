@@ -4,7 +4,6 @@ import Filme from "../pages/Filme";
 import Header from "../components/Header"
 import Favoritos from '../pages/Favoritos'
 
-
 import Error from '../pages/Error'
 function RoutesApp() {
 
