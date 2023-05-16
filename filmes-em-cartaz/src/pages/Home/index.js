@@ -42,6 +42,7 @@ function Home() {
     return (
         <div className="container">
             <div className="lista-filmes">
+
                 {filmes.map((filme) => {
                     return (
                         <article key={filme.id}>
@@ -51,6 +52,8 @@ function Home() {
                         </article>
                     )
                 })}
+
+                
             </div>
         </div>
     )

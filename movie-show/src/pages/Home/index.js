@@ -4,11 +4,11 @@ import { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
 
 function Home() {
-    
+
     const [movie, setMovie] = useState([])
 
     useEffect(() => {
-       
+
         async function loadMovie() {
 
             const response = await api.get('/movie/now_playing', {
@@ -19,16 +19,38 @@ function Home() {
                 }
             })
 
-            const updateMovie = response.data.results.slice(0,10)
+            const updateMovie = response.data.results.slice(0, 10)
             setMovie(updateMovie)
+
+            console.log(updateMovie)
 
         }
 
         loadMovie();
-    },[]);
+    }, []);
 
-    return(
-        <h1>dddd</h1>
+    return (
+
+        <div className="">
+
+         {
+            movie.map( (film) => {
+
+                return(
+
+                    <article className="containerMovies">
+                        <img src={`https://image.tmdb.org/t/p/original/${film.poster_path}`} alt="" />   
+
+                    </article>
+
+                                 
+                )
+
+            })
+         }
+
+        </div>
+
     );
 
 
