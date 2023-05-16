@@ -12,7 +12,7 @@ function Home() {
     const [loading, setLoading] = useState(true)
 
     useEffect(() => {
-        
+
         async function loadFilmes() {
 
             const response = await api.get('movie/now_playing', {
@@ -25,7 +25,7 @@ function Home() {
 
             setFilmes(response.data.results.slice(0, 10))
             setLoading(false)
-            //  console.log(response.data.results.slice(0,10));
+          /*   console.log(response.data.results.slice(0,10)); */
         }
 
         loadFilmes();
