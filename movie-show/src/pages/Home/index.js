@@ -1,7 +1,9 @@
+import api from '../../services/api'
+import { useState, useEffect }  from "react";
+import { Link } from "react-router-dom";
+
 function Home() {
-    return(
-        <h1>Home</h1>
-    )
+   const [movie, setMovie] = useState([])
 }
 
 export default Home

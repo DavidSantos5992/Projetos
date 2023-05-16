@@ -7,10 +7,12 @@ import "./home.css"
 
 
 function Home() {
+
     const [filmes, setFilmes] = useState([]);
     const [loading, setLoading] = useState(true)
 
     useEffect(() => {
+        
         async function loadFilmes() {
 
             const response = await api.get('movie/now_playing', {
@@ -28,6 +30,7 @@ function Home() {
 
         loadFilmes();
     })
+
     if (loading) {
         return(
             <div className="loading">
@@ -35,6 +38,7 @@ function Home() {
             </div>
         )
     }
+
     return (
         <div className="container">
             <div className="lista-filmes">
