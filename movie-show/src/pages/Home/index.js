@@ -31,15 +31,18 @@ function Home() {
 
     return (
 
-        <div className="">
+        <div className="w-full flex flex-col items-center justify-center ">
 
          {
             movie.map( (film) => {
 
                 return(
 
-                    <article className="containerMovies">
-                        <img src={`https://image.tmdb.org/t/p/original/${film.poster_path}`} alt="" />   
+                    <article key={film.id} className='w-96 h-96 flex flex-col items-center mb-96 rounded-xl bg-red-500' >
+
+                        <strong>{film.title}</strong>
+                        <img className='w-full h-80 object-contain' src={`https://image.tmdb.org/t/p/original/${film.poster_path}`} alt="" />   
+                        <button>Ver descrição</button>
 
                     </article>
 
