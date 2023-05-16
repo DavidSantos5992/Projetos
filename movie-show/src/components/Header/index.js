@@ -14,7 +14,7 @@ function Header() {
             </div>
             
             <button className="w-24 bg-blue-700 rounded-[10px] flex items-center justify-center">
-                <Link to='/login'>
+               <Link to='/login'>
                 <strong>Log in</strong>
                 </Link>
             </button>
