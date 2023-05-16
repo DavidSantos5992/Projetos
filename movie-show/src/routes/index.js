@@ -12,7 +12,7 @@ function RouterApp() {
             <Header/>
                 <Routes>
                     <Route path="/" element={ <Home/> } />
-                    <Route path="/favoritos" element={ <favoritos/> } />
+                    <Route path="/favoritos" element={ <Favoritos/> } />
                     <Route path="/filmes em cartaz" element={ <Movie/> } />
                     <Route path="/login" element={ <Login/> } />
                 </Routes>

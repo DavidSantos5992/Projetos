@@ -9,7 +9,7 @@ function Header() {
 
             <div className="flex items-center justify-around w-96 -400 text-black capitalize">
                 <Link to='/'>Home</Link>
-                <Link to='/filmes'>Filmes em Cartaz</Link>
+                <Link to='/filmes em cartaz'>Filmes em Cartaz</Link>
                 <Link to='/favoritos'>favoritos</Link>
             </div>
             

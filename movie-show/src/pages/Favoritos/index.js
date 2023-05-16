@@ -3,3 +3,5 @@ function Favoritos() {
         <h1>favoritos</h1>
     )
 }
+
+export default Favoritos
