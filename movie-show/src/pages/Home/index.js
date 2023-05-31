@@ -2,6 +2,7 @@ import { wait } from '@testing-library/user-event/dist/utils';
 import api from '../../services/api'
 import { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
+import Carrossel from '../../components/Carrossel';
 
 function Home() {
 
@@ -31,28 +32,31 @@ function Home() {
 
     return (
 
-        <div className="w-full flex flex-col items-center justify-center ">
+          <div className="w-full flex flex-col items-center justify-center ">
 
-         {
-            movie.map( (film) => {
-
-                return(
-
-                    <article key={film.id} className='w-96 h-96 flex flex-col items-center mb-96 rounded-xl bg-red-500' >
-
-                        <strong>{film.title}</strong>
-                        <img className='w-full h-80 object-contain' src={`https://image.tmdb.org/t/p/original/${film.poster_path}`} alt="" />   
-                        <button>Ver descrição</button>
-
-                    </article>
-
-                                 
-                )
-
-            })
-         }
-
-        </div>
+           <Carrossel/>
+  
+         {/*   {
+  
+              movie.map( (film) => {
+  
+                  return(
+  
+                      <article key={film.id} className='w-96 h-96 flex flex-col items-center mb-96 rounded-xl bg-red-500' >
+  
+                          <strong>{film.title}</strong>
+                          <img className='w-full h-80 object-contain' src={`https://image.tmdb.org/t/p/original/${film.poster_path}`} alt="" />   
+                          <button>Ver descrição</button>
+  
+                      </article>
+  
+                                   
+                  )
+  
+              })
+           } */}
+  
+          </div>
 
     );
 
